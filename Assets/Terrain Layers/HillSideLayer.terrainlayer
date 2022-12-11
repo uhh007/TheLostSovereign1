@@ -7,7 +7,7 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HillSideLayer
-  m_DiffuseTexture: {fileID: 2800000, guid: 22c813da5d090144580c0dd3e15dfb9a, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: 8b61cfb309df93147bbbaf9c49f52418, type: 3}
   m_NormalMapTexture: {fileID: 0}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 2, y: 2}

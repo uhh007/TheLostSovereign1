@@ -25,8 +25,9 @@ public class EnemyController : MonoBehaviour
     private void SpawnEnemyGameObject()
     {
         TransformChoose = rnd.Next(0, EnemySpawnPoints.Length);
-        _ = Instantiate(EnemyObject, new Vector3(EnemySpawnPoints[TransformChoose].position.x,
+        var enemy = Instantiate(EnemyObject, new Vector3(EnemySpawnPoints[TransformChoose].position.x,
             EnemySpawnPoints[TransformChoose].position.y, EnemySpawnPoints[TransformChoose].position.z), Quaternion.identity);
         EnemyCount--;
+        enemy.tag = "Enemy";
     }
 }

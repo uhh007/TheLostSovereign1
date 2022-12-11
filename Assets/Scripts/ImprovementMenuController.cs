@@ -50,8 +50,8 @@ public class ImprovementMenuController : MonoBehaviour
 
     private void DisplayOnScreen(int x, int y)
     {
-        GUI.Label(new Rect(x + 105, y + 200, 1000, FontSize), $"{Player.Health + TotalIncreasingHealth}", textStyle);
-        GUI.Label(new Rect(x + 250, y + 200, 1000, FontSize), $"{Player.Stamina + TotalIncreasingStamina}", textStyle);
+        GUI.Label(new Rect(x + 105, y + 200, 1000, FontSize), $"{Player.FULL_HP + TotalIncreasingHealth}", textStyle);
+        GUI.Label(new Rect(x + 250, y + 200, 1000, FontSize), $"{Player.FULL_STAMINA + TotalIncreasingStamina}", textStyle);
         GUI.Label(new Rect(x + 400, y + 200, 1000, FontSize), $"{Player.Damage + TotalIncreasingDamage}", textStyle);
         GUI.Label(new Rect(x + 550, y + 200, 1000, FontSize), $"{Player.CriticalDamageChance + TotalIncreasingCriticalChance}", textStyle);
     }
@@ -62,8 +62,8 @@ public class ImprovementMenuController : MonoBehaviour
         CheckDecreaseButtons(x, y);
         if (GUI.Button(new Rect(x + 500, y + 30, 1000, FontSize), "Подтвердить", textStyle))
         {
-            Player.Health += TotalIncreasingHealth;
-            Player.Stamina += TotalIncreasingStamina;
+            Player.FULL_HP += TotalIncreasingHealth;
+            Player.FULL_STAMINA += TotalIncreasingStamina;
             Player.Damage += TotalIncreasingDamage;
             Player.CriticalDamageChance += TotalIncreasingCriticalChance;
             ResetValues();
@@ -90,7 +90,7 @@ public class ImprovementMenuController : MonoBehaviour
         }
         if (GUI.Button(new Rect(x + 600, y + 290, ButtonSize, FontSize), "+", textStyle) && CanImprove())
         {
-            TotalIncreasingCriticalChance += 5;
+            TotalIncreasingCriticalChance += 0.1f;
             SkillPoints -= 1;
         }
     }
@@ -114,7 +114,7 @@ public class ImprovementMenuController : MonoBehaviour
         }
         if (GUI.Button(new Rect(x + 540, y + 287, ButtonSize, FontSize), "-", textStyle) && (TotalIncreasingCriticalChance > 0))
         {
-            TotalIncreasingCriticalChance -= 5;
+            TotalIncreasingCriticalChance -= 0.1f;
             SkillPoints += 1;
         }
     }

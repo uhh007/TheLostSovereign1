@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float RotationSpeed;
-    [SerializeField] private float EnemyDistance;
+    [SerializeField] private float EnemyDistance = 1f;
     public float EnemyDamage = 5f;
     public float EnemyHealth = 100f;
 
@@ -59,6 +59,20 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Sword")) EnemyHealth -= Player.Damage;
+        if (other.gameObject.CompareTag("Sword") && Input.GetKey(KeyCode.Mouse0)) EnemyHealth -= CalculateDamage();
+    }
+
+    public static float CalculateDamage()
+    {
+        var rnd = new System.Random();
+
+        float totalDamage = (rnd.Next(70, 130) / 100) * Player.Damage;
+
+        if (((float)rnd.Next(0, 100) / 100) <= Player.CriticalDamageChance)
+        {
+            totalDamage += Player.CriticalDamage;
+        }
+        print(totalDamage);
+        return totalDamage;
     }
 }

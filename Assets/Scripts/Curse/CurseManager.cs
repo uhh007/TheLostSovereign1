@@ -341,6 +341,7 @@ public class CurseManager : MonoBehaviour
             {
                 CurseObject.TimeAfterDamage = 0f;
                 Player.Health -= BaseHealthDamage + HealthStackDamage * CurseObject.StacksNum;
+                Player.TimeWhenTakedDamage = (int)Time.time;
             }
         }
     }

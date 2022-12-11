@@ -36,6 +36,7 @@ public class DemoSceneScript : MonoBehaviour
             if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + 100, 1000, FontSize), "Загрузить чекпоинт", textStyle))
             {
                 Player.Money -= 150f;
+                DestroyAllEnemies();
                 Button = true;
                 Time.timeScale = 1;
             }
@@ -56,5 +57,17 @@ public class DemoSceneScript : MonoBehaviour
             Player.isDied = false;
             Button = false;
         }
+    }
+
+    private void DestroyAllEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
+        }
+
+        gameObject.GetComponent<EnemyController>().enabled = false;
     }
 }
